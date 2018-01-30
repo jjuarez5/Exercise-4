@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace NewExercise4
 {
-    class Rungame
+    class RunGame
     {
-        //TO DO
+        //Method to Display the main menu for the game
+        //try/catch exception handling will go here too
+
     }
 }
