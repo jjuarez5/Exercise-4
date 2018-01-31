@@ -22,12 +22,34 @@ namespace NewExercise4
 
         private object UserInput()
         {
-            throw new NotImplementedException();
+            var input = false;
+
+            int selection = 0;
+
+            do
+            {
+                Console.WriteLine(" Make a selection :");
+
+                try
+                {
+                    selection = int.Parse(Console.ReadLine());
+                    input = true;
+                }
+                catch (FormatException fEx)
+                {
+                    Console.WriteLine("Invalid selection, Space Ranger! Try again!");
+                }
+            } while (!input);
+
+            return selection;
+         
         }
 
         private bool ActOnSelectedItem(object v)
         {
             throw new NotImplementedException();
+            // This is going to be the method that calls method.
+            // Implement switch case statement.
         }
 
         // Method to Display the Welcome menu for the game
