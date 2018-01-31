@@ -10,6 +10,11 @@ namespace NewExercise4
     {
         static void Main(string[] args)
         {
+
+           new RunGame().Run();
+            
+
+
             //Call the RunGame method in RunGame class
         }
     }
