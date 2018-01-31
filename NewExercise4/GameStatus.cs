@@ -29,6 +29,7 @@ namespace NewExercise4
             //string currentPlanet = "Earth"; //Hard Code
             //string currentShip = "USS Yogi Bear"; //Hard Code
 
+            Console.Clear();
             Console.WriteLine(" You are a Space Ranger!!!");
             Console.WriteLine(" Collect as many credits as possible. \n");
 
