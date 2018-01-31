@@ -9,6 +9,7 @@ namespace NewExercise4
     class RunGame
     {
         public void Run()
+            // This method will intialize a new game.
         {
             var exitProgram = false;
 
@@ -19,8 +20,10 @@ namespace NewExercise4
 
             } while (!exitProgram);
         }
-
-        private object UserInput()
+                
+            // This method will take user input and determine 
+            // if it is valid.
+        private int UserInput()
         {
             var input = false;
 
@@ -35,7 +38,7 @@ namespace NewExercise4
                     selection = int.Parse(Console.ReadLine());
                     input = true;
                 }
-                catch (FormatException fEx)
+                catch (FormatException)
                 {
                     Console.WriteLine("Invalid selection, Space Ranger! Try again!");
                 }
@@ -45,20 +48,26 @@ namespace NewExercise4
          
         }
 
-        private bool ActOnSelectedItem(object v)
+        private bool ActOnSelectedItem(int selection)
         {
-            throw new NotImplementedException();
-            // This is going to be the method that calls method.
-            // Implement switch case statement.
+            var exit = false;
+
+            // This switch case determines whether or not
+            // user wants to continue to new game or exit.
+            switch (selection)
+            {
+                case 1:
+                   //  GameStatus.mainMenu();
+                    break;
+                case 0:
+                    exit = true;
+                    break;               
+            }
+            return exit;
         }
 
-        // Method to Display the Welcome menu for the game
-        // The Welcome Menu should display
-        // -Welcome to Space Explorer 1982!
-        // __________________________________
-        // Choose an option :
-        // 1. New Game
-        // 0. Exit
+            // This method only diplays the Welcome Menu
+
         public void WelcomeMenu()
         {
             Console.WriteLine(" Welcome to Space Explorer 1983!\n");
@@ -66,6 +75,5 @@ namespace NewExercise4
             Console.WriteLine(" 1. New Game");
             Console.WriteLine(" 0. Exit \n");
         }
-        // try/catch exception handling will go here too
     }
 }
