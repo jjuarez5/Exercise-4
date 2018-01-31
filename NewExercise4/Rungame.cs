@@ -57,7 +57,7 @@ namespace NewExercise4
             switch (selection)
             {
                 case 1:
-                    new GameStatus().MainMenu();
+                    new GameStatus().NewGame();
                     break;
                 case 0:
                     exit = true;
