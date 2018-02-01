@@ -131,13 +131,38 @@ namespace NewExercise4
             Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
             Console.WriteLine("Choose a location to travel to : \n");
-            Console.WriteLine("1. Youranus");
+            Console.WriteLine("1. Tellar Prime");
+            Console.WriteLine("2. Home Planet");
             Console.WriteLine("0. Go Back\n");
-            UserInput();
 
-           // Console.WriteLine("-Wait for user input-");
-           // Console.WriteLine("Enter your Warp Speed");
+            var goBack = false;
+            double speed = 0.0;
 
+            // This switch case will perform treavel portion of game
+            //User can also "go back" if travel is not desired
+            switch (UserInput())
+            {
+                case 1:
+                    Console.WriteLine("Enter your cruising WARP speed.");
+                    Console.WriteLine("Speed can be 0.1 to 9.9\n");
+                    Console.Write("Speed: ");
+                    speed = double.Parse(Console.ReadLine());
+                    //test for valid input here
+                    //calculate distance, speed etc
+
+
+                    //may need to break this out into the planet's as a method there
+                    //Each planet should have a welcome screen with costs etc.
+                    Console.WriteLine("Welcome to Tellar Prime!");
+                    Console.WriteLine($"You traveled XX miles at {speed} Speed...");
+                    break;
+                case 2:
+                    Console.WriteLine("You're already at your home planet");
+                    break;
+                case 0:
+                    goBack = true;
+                    break;
+            }
         }
     }
 }
