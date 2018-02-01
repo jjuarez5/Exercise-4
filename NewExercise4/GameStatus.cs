@@ -44,7 +44,7 @@ namespace NewExercise4
 
             //Call Method for current account balance
             Console.WriteLine("Current Account Balance is: \n"); //+ {currentBalance});
-           
+
         }
 
         //Method to display choose an option
@@ -131,7 +131,7 @@ namespace NewExercise4
             Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
             Console.WriteLine("Choose a location to travel to : \n");
-            Console.WriteLine("1. Tellar Prime");
+            Console.WriteLine("1. Yeranos");
             Console.WriteLine("2. Home Planet");
             Console.WriteLine("0. Go Back\n");
 
@@ -143,18 +143,15 @@ namespace NewExercise4
             switch (UserInput())
             {
                 case 1:
-                    Console.WriteLine("Enter your cruising WARP speed.");
-                    Console.WriteLine("Speed can be 0.1 to 9.9\n");
-                    Console.Write("Speed: ");
-                    speed = double.Parse(Console.ReadLine());
-                    //test for valid input here
-                    //calculate distance, speed etc
-
-
+                    speed = warpSpeed();
                     //may need to break this out into the planet's as a method there
                     //Each planet should have a welcome screen with costs etc.
-                    Console.WriteLine("Welcome to Tellar Prime!");
-                    Console.WriteLine($"You traveled XX miles at {speed} Speed...");
+                    Console.Clear();
+                    Console.WriteLine("You made it to Yeranos!\n");
+                    Console.WriteLine($"You traveled XX miles at {speed} times the speed of Light!  ZOOOM!\n");
+                    Console.WriteLine("Press enter to continue to the planet page!");
+                    Console.ReadLine();
+                    //Update current planet to YERANOS
                     break;
                 case 2:
                     Console.WriteLine("You're already at your home planet");
@@ -164,5 +161,33 @@ namespace NewExercise4
                     break;
             }
         }
+        private double warpSpeed()
+        {
+            var input = false;
+
+            double i = 0.0;
+            double speed = 0.0;
+
+            do
+            {
+                Console.WriteLine("Enter your cruising WARP speed.");
+                Console.WriteLine("Speed can be 0.1 to 9.9\n");
+                Console.Write("Speed: ");
+                try
+                {
+                    i = double.Parse(Console.ReadLine());
+                    speed = (Math.Pow(i, (10 / 3)) + ((Math.Pow((10 - i), (-11 / 3)))));
+                    input = true;
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Come on Space Ranger, set your Warp speed correctly! Try again!");
+                }
+            } while (!input);
+
+            return speed;            
+        }
+       
     }
 }
