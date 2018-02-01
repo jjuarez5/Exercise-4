@@ -47,7 +47,7 @@ namespace NewExercise4
 
         }
 
-        //Method to display choose an option
+        //Method to display choose an option to Travel or Buy/Sell
         public void ChooseOption()
         {
             Console.WriteLine(" Choose an option :");
@@ -56,16 +56,6 @@ namespace NewExercise4
             Console.WriteLine(" 0. Exit/Quit\n");
         }
 
-        private void AccountBalance()
-        {
-            Console.WriteLine("Your Balance Method");
-            //return currentBalance
-        }
-
-        private void SupplyLevel()
-        {
-            Console.WriteLine("Your Supply Level Method");
-        }
 
         //Method to check supply levels
 
@@ -97,12 +87,12 @@ namespace NewExercise4
 
         }
 
+        // This method contains a switch case to determine if user
+        // wants to continue to Travel/Buy-Sell or Quit.
         private bool ActOnSelectedItem(int selection)
         {
             var exitGame = false;
 
-            // This switch case determines whether or not
-            // user wants to continue to new game or exit.
             switch (selection)
             {
                 case 1:
@@ -161,6 +151,8 @@ namespace NewExercise4
                     break;
             }
         }
+
+        //This method will calculate warp speed to speed of light after obtaining input.
         private double warpSpeed()
         {
             var input = false;
