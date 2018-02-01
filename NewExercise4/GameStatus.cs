@@ -128,7 +128,13 @@ namespace NewExercise4
 
         private void SpaceTravel()
         {
-            Console.WriteLine("Travel");
+            Console.WriteLine("Space Ranger Travel \n");
+            Console.WriteLine("Choose a location to travel to : \n");
+            Console.WriteLine("1. Youranus");
+            Console.WriteLine("0. Go Back");
+           // Console.WriteLine("-Wait for user input-");
+           // Console.WriteLine("Enter your Warp Speed");
+
         }
     }
 }
