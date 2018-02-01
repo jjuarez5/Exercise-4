@@ -15,6 +15,7 @@ namespace NewExercise4
 
             do
             {
+                Console.Clear();
                 WelcomeMenu();
                 exitProgram = ActOnSelectedItem(UserInput());
 

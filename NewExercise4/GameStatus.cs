@@ -80,7 +80,7 @@ namespace NewExercise4
 
             do
             {
-                Console.WriteLine(" Make a selection :");
+                Console.Write(" Make a selection :");
 
                 try
                 {
@@ -128,10 +128,13 @@ namespace NewExercise4
 
         private void SpaceTravel()
         {
+            Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
             Console.WriteLine("Choose a location to travel to : \n");
             Console.WriteLine("1. Youranus");
-            Console.WriteLine("0. Go Back");
+            Console.WriteLine("0. Go Back\n");
+            UserInput();
+
            // Console.WriteLine("-Wait for user input-");
            // Console.WriteLine("Enter your Warp Speed");
 
