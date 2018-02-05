@@ -11,6 +11,9 @@ namespace NewExercise4
         // User starts with an initial balance of 1000 credits
         int currentBalance = 1000;
 
+        //Create a method to update user Balance =  current balance + Purchase supplies + Sell Supplies and
+        //then return those variables to zero
+
         // This method will determine whether user balance increases or discreases
         public int userBalance()
         {
