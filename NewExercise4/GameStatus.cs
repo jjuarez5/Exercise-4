@@ -113,7 +113,31 @@ namespace NewExercise4
 
         private void BuySellSupplies()
         {
-            Console.WriteLine("Buy/Sell Supplies");
+            Console.Clear();
+            Console.WriteLine("Welcome to Planet... \n");
+            Console.WriteLine("Supplies here cost:\n");
+            Console.WriteLine("1. To Buy: ");
+            Console.WriteLine("2. To Sell: ");
+            Console.WriteLine("0. Go Back\n");
+
+            var exitSale = false;
+
+            switch (UserInput())
+            {
+                case 1:
+                    //PurchaseNewSupplies(); //This method should reside HERE
+                    //UpdateSupplies(); //This method should reside in the Ship Class
+                    //UpdateUserBalance(); //This method wshould reside in the User Class
+                    break;
+                case 2:
+                    //SellExistingSupplies(); //This method should reside HERE
+                    //UpdateSupplies(); //This method should reside in the Ship Class
+                    //UpdateUserBalance(); //This method wshould reside in the User Class
+                    break;
+                case 0:
+                    exitSale = true;
+                    break;
+            }
         }
 
         private void SpaceTravel()
@@ -139,7 +163,7 @@ namespace NewExercise4
                     Console.Clear();
                     Console.WriteLine("You made it to Yeranos!\n");
                     Console.WriteLine($"You traveled XX miles at {speed} times the speed of Light!  ZOOOM!\n");
-                    Console.WriteLine("Press enter to continue to the planet page!");
+                    Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
                     //Update current planet to YERANOS
                     break;
