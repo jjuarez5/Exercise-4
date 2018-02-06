@@ -162,8 +162,11 @@ namespace NewExercise4
             Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
             Console.WriteLine("Choose a location to travel to : \n");
-            Console.WriteLine("1. Yeranos");
-            Console.WriteLine("2. Home Planet");
+            for (var i =0; i<planetList.Length;i++)
+            {
+              
+                Console.WriteLine($"{i+1}. {planetList[i].planetName}");
+            }
             Console.WriteLine("0. Go Back\n");
 
 
