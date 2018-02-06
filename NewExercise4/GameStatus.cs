@@ -10,7 +10,10 @@ namespace NewExercise4
     {
         //Method to display the Main Menu
         //While currency == $0... yada yada
-        //Call RunGame.UserInput();
+        public string myPlanet = "";
+        public string myShip = "";
+
+        //This method calls the main menu, choose option and determines if user wants to quit
         public void NewGame()
         {
             var exitGame = false;
@@ -26,18 +29,17 @@ namespace NewExercise4
 
         public void MainMenu()
         {
-            //string currentPlanet = "Earth"; //Hard Code
-            //string currentShip = "USS Yogi Bear"; //Hard Code
-
             Console.Clear();
             Console.WriteLine(" You are a Space Ranger!!!");
             Console.WriteLine(" Collect as many credits as possible. \n");
 
             //Call Method for current planet
-            Console.WriteLine("Current Planet is: "); // planet.currentPlanet from new class
+            myPlanet = new Planets().determinePlanet();
+            Console.WriteLine($"Current Planet is: {myPlanet}");
 
             //Call Method for current ship
-            Console.WriteLine("Current Ship is: "); // ship.currentShip from new class
+            myShip = new Spaceship().determineShip();//Need to call this publically first then variable it
+            Console.WriteLine($"Current Ship is: {myShip}");
 
             //Call Method for current supply level
             Console.WriteLine("Current Supply Level is: "); // + SupplyLevel();
@@ -104,6 +106,8 @@ namespace NewExercise4
                 case 0:
                     exitGame = true;
                     break;
+                default:
+                    break;
             }
             return exitGame;
 
@@ -137,6 +141,8 @@ namespace NewExercise4
                 case 0:
                     exitSale = true;
                     break;
+                default:
+                    break;
             }
         }
 
@@ -162,16 +168,21 @@ namespace NewExercise4
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
                     Console.WriteLine("You made it to Yeranos!\n");
-                    Console.WriteLine($"You traveled XX miles at {speed} times the speed of Light!  ZOOOM!\n");
+                    Console.WriteLine($"You traveled XX light years at {speed} times the speed of Light!  ZOOOM!\n");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
+                    myPlanet = ("Yernaos");//this doesn't really work here now... right spot?!?
                     //Update current planet to YERANOS
                     break;
                 case 2:
                     Console.WriteLine("You're already at your home planet");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
                     break;
                 case 0:
                     goBack = true;
+                    break;
+                default:
                     break;
             }
         }
@@ -192,9 +203,11 @@ namespace NewExercise4
                 try
                 {
                     i = double.Parse(Console.ReadLine());
-                    speed = (Math.Pow(i, (10 / 3)) + ((Math.Pow((10 - i), (-11 / 3)))));
-                    input = true;
-
+                    if ((i < 10) && (i > 0))
+                    {
+                        speed = (Math.Pow(i, (10 / 3)) + ((Math.Pow((10 - i), (-11 / 3)))));
+                        input = true;
+                    }
                 }
                 catch (FormatException)
                 {

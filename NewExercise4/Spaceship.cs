@@ -8,6 +8,12 @@ namespace NewExercise4
 {
     class Spaceship
     {
-        //TO DO
+        string currentShip = ("EarthWorm");
+        public string myShip;
+        public string determineShip()
+        {
+            myShip = currentShip;
+            return myShip;
+        }
     }
 }
