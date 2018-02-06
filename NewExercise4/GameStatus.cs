@@ -14,7 +14,7 @@ namespace NewExercise4
 
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
                                  new Planets("Yeranos", new Atlas(0, 12.3)),
-                                 new Planets("Far Away", new Atlas(22.8,9.3)),
+                                 new Planets("Far Away", new Atlas(1.2,9.3)),
                                  new Planets("Even Further Away", new Atlas(30.2,0))};
         public string myShip = "";
 
@@ -178,14 +178,15 @@ namespace NewExercise4
             //Make into an if statement to test if at max array limit...
             switch (selected)
             {
-                case 1:
+                case 3:
                     speed = warpSpeed();
+                    var distance = this.currentPlanet.location.distanceAway(planetList[selected-1].location);
                     //may need to break this out into the planet's as a method there
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
                     currentPlanet = planetList[selected-1];
                     Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
-                    Console.WriteLine($"You traveled XX light years at {speed} times the speed of Light!  ZOOOM!\n");
+                    Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
                     break;
