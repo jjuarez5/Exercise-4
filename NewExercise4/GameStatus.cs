@@ -164,16 +164,14 @@ namespace NewExercise4
             Console.WriteLine("Choose a location to travel to : \n");
             for (var i =0; i<planetList.Length;i++)
             {
-              
                 Console.WriteLine($"{i+1}. {planetList[i].planetName}");
             }
             Console.WriteLine("0. Go Back\n");
 
-
             var goBack = false;
             double speed = 0.0;
 
-            // This switch case will perform treavel portion of game
+            // This switch case will perform travel portion of game
             //User can also "go back" if travel is not desired
             var selected = UserInput();
 
@@ -185,7 +183,7 @@ namespace NewExercise4
                     //may need to break this out into the planet's as a method there
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
-                    currentPlanet = planetList[selected];
+                    currentPlanet = planetList[selected-1];
                     Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
                     Console.WriteLine($"You traveled XX light years at {speed} times the speed of Light!  ZOOOM!\n");
                     Console.WriteLine("Press enter to continue...");
