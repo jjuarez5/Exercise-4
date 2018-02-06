@@ -10,8 +10,18 @@ namespace NewExercise4
     {
         //Method to display the Main Menu
         //While currency == $0... yada yada
-        public string myPlanet = "";
+        Planets currentPlanet;
+
+        Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
+                                 new Planets("Yeranos", new Atlas(0, 12.3)),
+                                 new Planets("Far Away", new Atlas(22.8,9.3)),
+                                 new Planets("Even Further Away", new Atlas(30.2,0))};
         public string myShip = "";
+
+        public GameStatus()
+        {
+            currentPlanet = planetList[0];
+        }
 
         //This method calls the main menu, choose option and determines if user wants to quit
         public void NewGame()
@@ -34,8 +44,7 @@ namespace NewExercise4
             Console.WriteLine(" Collect as many credits as possible. \n");
 
             //Call Method for current planet
-            myPlanet = new Planets().determinePlanet();
-            Console.WriteLine($"Current Planet is: {myPlanet}");
+            Console.WriteLine($"Current Planet is: {currentPlanet.planetName}");
 
             //Call Method for current ship
             myShip = new Spaceship().determineShip();//Need to call this publically first then variable it
@@ -142,6 +151,8 @@ namespace NewExercise4
                     exitSale = true;
                     break;
                 default:
+                    Console.WriteLine("Please select 0, 1 or 2!");
+                    Console.ReadLine();
                     break;
             }
         }
@@ -155,12 +166,15 @@ namespace NewExercise4
             Console.WriteLine("2. Home Planet");
             Console.WriteLine("0. Go Back\n");
 
+
             var goBack = false;
             double speed = 0.0;
 
             // This switch case will perform treavel portion of game
             //User can also "go back" if travel is not desired
-            switch (UserInput())
+            var selected = UserInput();
+
+            switch (selected)
             {
                 case 1:
                     speed = warpSpeed();
@@ -168,10 +182,10 @@ namespace NewExercise4
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
                     Console.WriteLine("You made it to Yeranos!\n");
+                    currentPlanet = planetList[selected];
                     Console.WriteLine($"You traveled XX light years at {speed} times the speed of Light!  ZOOOM!\n");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
-                    myPlanet = ("Yernaos");//this doesn't really work here now... right spot?!?
                     //Update current planet to YERANOS
                     break;
                 case 2:

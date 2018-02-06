@@ -8,12 +8,13 @@ namespace NewExercise4
 {
     class Planets
     {
-        string currentPlanet = ("Earth");
-        public string myPlanet;
-        public string determinePlanet()
+        public string planetName;
+        public Atlas location;
+
+        public Planets(string planetName, Atlas location)
         {
-            myPlanet = currentPlanet;
-            return myPlanet;
+            this.planetName = planetName;
+            this.location = location;
         }
     }
 }

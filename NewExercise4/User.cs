@@ -18,7 +18,7 @@ namespace NewExercise4
 
         public int updatedBalance()
         {
-            int newBalance = 0;
+            int newBalance = (UserInput());
 
             switch (newBalance)
             {
@@ -30,6 +30,11 @@ namespace NewExercise4
                 case 2:
                     sellSupplies();
                     break;
+                case 0:
+                    break;
+                default:
+                    break;
+
             }
             return newBalance;
         }

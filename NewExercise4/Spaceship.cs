@@ -11,6 +11,7 @@ namespace NewExercise4
         public string currentShip = ("EarthWorm Jim");
         public string myShip;
         public int supplies = 0;
+        public int shipInventory = 0;
 
         public string determineShip()
         {
@@ -18,11 +19,15 @@ namespace NewExercise4
             return myShip;
         }
 
-        // code structure by argiopetech
-        public void InboundSupplies(int onLoadedSupplies)
+
+        //Method to receive purchase order "boughtSupplies" and
+        //increase shipInventory = then return shipInventory.
+        public int IncreaseShipInventory(int boughtSupplies)
         {
-            this.supplies += onLoadedSupplies;
+             this.shipInventory += boughtSupplies;
+             return shipInventory;
         }
+
 
         // code structure by argiopetech
         public int OutboundSupplies(int offLoadedSupplies)
