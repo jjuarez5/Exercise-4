@@ -11,8 +11,62 @@ namespace NewExercise4
         // User starts with an initial balance of 1000 credits
         int currentBalance = 1000;
 
-        //Create a method to update user Balance =  current balance + Purchase supplies + Sell Supplies and
-        //then return those variables to zero
+        // Create a method to update user Balance =  current balance + Purchase supplies + Sell Supplies and
+        // then return those variables to zero
+        // Maybe separate current balance, purchase supplies, and sell supplies as various methods.
+        // START HERE!!!!!!!!!
+
+        public int updatedBalance()
+        {
+            int newBalance = 0;
+
+            switch (newBalance)
+            {
+
+                // Implement userInput?
+                case 1:
+                    purchaseSupplies();
+                    break;
+                case 2:
+                    sellSupplies();
+                    break;
+            }
+            return newBalance;
+        }
+        // This method will store the number of supplies the user wishes to sell
+        public int sellSupplies()
+        {
+            // Will possibly need to implement method for cost of goods
+            // to display quantityPurchased * costOfGoods = totalSold
+            int quantitySold = 0;
+            int q = quantitySold;
+            int totalSold = 0;
+
+            Console.WriteLine("Enter amount of supplies you wish to sell...");
+            q = int.Parse(Console.ReadLine());
+
+            totalSold *= quantitySold;
+
+            return totalSold;
+
+        }
+        // This method will store the number of supplies the user wishes to purchase
+        public int purchaseSupplies()
+        {
+            // Will possibly need to implement method for cost of goods
+            // to display quantityPurchased * costOfGoods = totalPurchased
+            int quantityPurchased = 0;
+            int q = quantityPurchased;
+            int totalPurchased = 0;
+
+            Console.WriteLine("Enter amount of supplies you wish to purchase...");
+            q = int.Parse(Console.ReadLine());
+
+            totalPurchased *= quantityPurchased;
+
+            return totalPurchased;
+        }
+
 
         // This method will determine whether user balance increases or discreases
         public int userBalance()
