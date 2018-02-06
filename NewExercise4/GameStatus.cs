@@ -177,6 +177,7 @@ namespace NewExercise4
             //User can also "go back" if travel is not desired
             var selected = UserInput();
 
+            //Make into an if statement to test if at max array limit...
             switch (selected)
             {
                 case 1:
@@ -184,12 +185,11 @@ namespace NewExercise4
                     //may need to break this out into the planet's as a method there
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
-                    Console.WriteLine("You made it to Yeranos!\n");
                     currentPlanet = planetList[selected];
+                    Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
                     Console.WriteLine($"You traveled XX light years at {speed} times the speed of Light!  ZOOOM!\n");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
-                    //Update current planet to YERANOS
                     break;
                 case 2:
                     Console.WriteLine("You're already at your home planet");
