@@ -10,17 +10,20 @@ namespace NewExercise4
     {
         public string spaceshipName;
         public int shipInventory = 1000;
-        public int shipMaxSpeed;//declared for future builds
-        public int shipMaxInventory;//declared for future builds
 
-        //not 100% sure what this does with the array now existing...
+        // Declared for future builds
+        public int shipMaxSpeed;
+        // Declared for future builds
+        public int shipMaxInventory;
+
+        // Not 100% sure what this does with the array now existing...
         public Spaceship(string spaceshipName)
         {
             this.spaceshipName = spaceshipName;
         }
 
-        //Method to receive purchase order "boughtSupplies" and
-        //increase shipInventory = then return shipInventory.
+        // Method to receive purchase order "boughtSupplies" and
+        // increase shipInventory = then return shipInventory.
         public int IncreaseShipInventory(int orderedSupplies)
         {
              this.shipInventory += orderedSupplies;
@@ -28,7 +31,7 @@ namespace NewExercise4
         }
 
 
-        //Method to decrease inventory if supplies sold
+        // Method to decrease inventory if supplies sold
         public int DecreaseShipInventory(int invoicedSupplies)
         {
             int suppliesSold = 0;
