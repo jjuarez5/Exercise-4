@@ -187,8 +187,8 @@ namespace NewExercise4
                     var moneySpent = (orderedSupplies * 10);
                     currentUser.DecreaseUserBalance(moneySpent);
 
-                    Console.WriteLine(currentShip.shipInventory);
-                    Console.WriteLine(moneySpent);
+                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory}!!");
+                    Console.WriteLine($"This is going to cost you {moneySpent}!!");
                     Console.ReadLine();
 
                     break;
@@ -199,8 +199,8 @@ namespace NewExercise4
                     var moneyMade = (invoicedSupplies * 9);
                     currentUser.IncreaseUserBalance(moneyMade);
 
-                    Console.WriteLine(currentShip.shipInventory);
-                    Console.WriteLine(moneyMade);
+                    Console.WriteLine($" You're new inventory will be {currentShip.shipInventory}!!");
+                    Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} added to your balance!!");
                     Console.ReadLine();
 
                     break;
