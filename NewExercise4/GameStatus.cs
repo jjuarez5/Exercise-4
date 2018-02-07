@@ -40,9 +40,10 @@ namespace NewExercise4
             do
             {
                 MainMenu();
-                ChooseOption();
+                GameOver();
+                ChooseOption();              
                 exitGame = ActOnSelectedItem(UserInput());
-
+                
             } while (!exitGame);
         }
 
@@ -51,7 +52,8 @@ namespace NewExercise4
         {
             Console.Clear();
             Console.WriteLine(" You are a Space Ranger!!!");
-            Console.WriteLine(" Collect as many credits as possible! \n");
+            Console.WriteLine(" Collect as many credits as possible! ");
+            Console.WriteLine(" Your game will end if your account balance is 0!!\n");
 
         // Call Method for current planet
             Console.WriteLine($"Your current Planet is: {currentPlanet.planetName}");
@@ -162,14 +164,28 @@ namespace NewExercise4
         }
 
         // TODO Method to display stats and "Game Over"
+        public void GameOver()
+        {
+            if (currentUser.accountBalance == 0) 
+            {
+                Console.Clear();
+                Console.WriteLine("G A M E   O V E R");
+                Console.WriteLine("_______________________");
+                Console.WriteLine($"You traveled a total of {totalTravel} light years.");
+                Console.WriteLine($"You ended up with a total {currentUser.accountBalance} credits.");
+                Console.WriteLine($"You ended your journey on Planet {currentPlanet.planetName}.");
+                Console.WriteLine("Thanks for playing, Space Ranger. You did an okay job.");
+
+            }
+        }
 
         private void BuySellSupplies()
         {
             Console.Clear();
             Console.WriteLine($"Welcome to Planet {currentPlanet.planetName}");
             Console.WriteLine("Supplies here cost:\n");
-            Console.WriteLine($"1. Buying supplies here will cost you {currentPlanet.supplyBuyPrice} credits!");
-            Console.WriteLine($"2. Selling supplies here will cost you {currentPlanet.supplySellPrice} credits! ");
+            Console.WriteLine($"1. Buying supplies here will cost you {currentPlanet.supplyBuyPrice} credits per case!");
+            Console.WriteLine($"2. Selling supplies here will make you {currentPlanet.supplySellPrice} credits per case! ");
             Console.WriteLine("0. Go Back\n");
 
             var exitSale = false;
@@ -185,7 +201,7 @@ namespace NewExercise4
                     var moneySpent = (orderedSupplies * currentPlanet.supplyBuyPrice);
                     currentUser.DecreaseUserBalance(moneySpent);
 
-                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!!");
+                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
                     Console.WriteLine($"This is going to cost you {moneySpent} credits!!");
                     Console.ReadLine();
 
