@@ -135,7 +135,7 @@ namespace NewExercise4
         {
             Console.Clear();
             Console.WriteLine("Space Ranger Docking Station \n");
-            Console.WriteLine("Choose a Space Ship : \n");
+            Console.Write("Choose a Space Ship : \n");
             for (var i = 0; i < spaceshipList.Length; i++)
             {
                 Console.WriteLine($"{i + 1}. {spaceshipList[i].spaceshipName}");
@@ -150,7 +150,7 @@ namespace NewExercise4
             }
             else if (this.currentShip == spaceshipList[selected - 1])
             {
-                Console.WriteLine("You're already on this awesome ship!!!\nPress enter to continue");
+                Console.Write("You're already on this awesome ship!!!\nPress enter to continue");
                 Console.ReadLine();
             }
             else if ((selected <= spaceshipList.Length) && (selected > 0))
@@ -158,8 +158,8 @@ namespace NewExercise4
                 Console.Clear();
                 currentShip = spaceshipList[selected - 1];
                 Console.WriteLine($"Welcome Aboard the {currentShip.spaceshipName}\n");
-                Console.WriteLine("Fair winds and following seas Space Ranger!");
-                Console.WriteLine("Press enter to continue...");
+                Console.WriteLine("Fair winds and following seas Space Ranger!\n");
+                Console.Write("Press enter to continue...");
                 Console.ReadLine();
             }
         }
@@ -225,8 +225,8 @@ namespace NewExercise4
             }
             else if ((selected <= planetList.Length) && (selected > 0))
             {
-                speed = warpSpeed();
-                var distance = this.currentPlanet.location.distanceAway(planetList[selected - 1].location);
+                speed = WarpSpeed();
+                var distance = this.currentPlanet.location.DistanceAway(planetList[selected - 1].location);
                 Console.Clear();
                 currentPlanet = planetList[selected-1];
                 Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
