@@ -8,17 +8,15 @@ namespace NewExercise4
 {
     class Spaceship
     {
-        public string currentShip = ("EarthWorm Jim");
-        public string myShip;
+        public string currentShip;
+        public string spaceshipName;
         public int supplies = 0;
-        public int shipInventory = 0;
+        public int shipInventory = 1000;
 
-        public string determineShip()
+        public Spaceship(string spaceshipName)
         {
-            myShip = currentShip;
-            return myShip;
+            this.spaceshipName = spaceshipName;
         }
-
 
         //Method to receive purchase order "boughtSupplies" and
         //increase shipInventory = then return shipInventory.

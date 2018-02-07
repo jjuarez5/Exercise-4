@@ -8,19 +8,27 @@ namespace NewExercise4
 {
     class GameStatus
     {
-        //Method to display the Main Menu
-        //While currency == $0... yada yada
+        //Establishing Current planet and ship
         Planets currentPlanet;
+        Spaceship currentShip;
 
+        //Establishing Planet Array
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
                                  new Planets("Yeranos", new Atlas(0, 12.3)),
                                  new Planets("Far Away", new Atlas(1.2,9.3)),
                                  new Planets("Even Further Away", new Atlas(30.2,0))};
-        public string myShip = "";
+        //Establishing SpaceShip Array
+        Spaceship[] spaceshipList = { new Spaceship("USS GOLDIE HAWN"),
+                                      new Spaceship("USS TEXAS"),
+                                      new Spaceship("USS ULYSSES S. GRANT")};
 
+        //Method to initilize "current items"
         public GameStatus()
         {
             currentPlanet = planetList[0];
+            currentShip = spaceshipList[0];
+            //currentSupplies = 1000;
+            //currentAccountBalance = 500;
         }
 
         //This method calls the main menu, choose option and determines if user wants to quit
@@ -37,6 +45,7 @@ namespace NewExercise4
             } while (!exitGame);
         }
 
+        //TODO Method to display Main Menu for current game with current STATS 
         public void MainMenu()
         {
             Console.Clear();
@@ -47,11 +56,10 @@ namespace NewExercise4
             Console.WriteLine($"Current Planet is: {currentPlanet.planetName}");
 
             //Call Method for current ship
-            myShip = new Spaceship().determineShip();//Need to call this publically first then variable it
-            Console.WriteLine($"Current Ship is: {myShip}");
+            Console.WriteLine($"Current Ship is: {currentShip.spaceshipName}");
 
             //Call Method for current supply level
-            Console.WriteLine("Current Supply Level is: "); // + SupplyLevel();
+            Console.WriteLine($"Current Supply Level is: {currentShip.shipInventory} supply cases");
 
             //Call Method for current account balance
             Console.WriteLine("Current Account Balance is: \n"); //+ {currentBalance});
@@ -64,13 +72,13 @@ namespace NewExercise4
             Console.WriteLine(" Choose an option :");
             Console.WriteLine(" 1. Travel");
             Console.WriteLine(" 2. Buy/Sell Supplies");
+            Console.WriteLine(" 3. Change your Spaceship");
             Console.WriteLine(" 0. Exit/Quit\n");
         }
 
+        //TODO Method to check supply levels
 
-        //Method to check supply levels
-
-        //Method to check account balance
+        //TODO Method to check account balance
 
         //Method to read user input
         private int UserInput()
@@ -98,8 +106,7 @@ namespace NewExercise4
 
         }
 
-        // This method contains a switch case to determine if user
-        // wants to continue to Travel/Buy-Sell or Quit.
+        //Method to call method based on user input
         private bool ActOnSelectedItem(int selection)
         {
             var exitGame = false;
@@ -112,6 +119,9 @@ namespace NewExercise4
                 case 2:
                     BuySellSupplies();
                     break;
+                case 3:
+                    ChangeYourShip();
+                    break;
                 case 0:
                     exitGame = true;
                     break;
@@ -119,10 +129,42 @@ namespace NewExercise4
                     break;
             }
             return exitGame;
-
-            //Method to display stats and "Game Over"
-            //If game over, change variable to end game in RunGame
         }
+
+        private void ChangeYourShip()
+        {
+            Console.Clear();
+            Console.WriteLine("Space Ranger Docking Station \n");
+            Console.WriteLine("Choose a Space Ship : \n");
+            for (var i = 0; i < spaceshipList.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {spaceshipList[i].spaceshipName}");
+            }
+            Console.WriteLine("0. Go Back\n");
+
+            var selected = UserInput();
+
+            if ((selected == 0) || ((selected) > spaceshipList.Length) || (selected < 0))
+            {
+                ;
+            }
+            else if (this.currentShip == spaceshipList[selected - 1])
+            {
+                Console.WriteLine("You're already on this awesome ship!!!\nPress enter to continue");
+                Console.ReadLine();
+            }
+            else if ((selected <= spaceshipList.Length) && (selected > 0))
+            {
+                Console.Clear();
+                currentShip = spaceshipList[selected - 1];
+                Console.WriteLine($"Welcome Aboard the {currentShip.spaceshipName}\n");
+                Console.WriteLine("Fair winds and following seas Space Ranger!");
+                Console.WriteLine("Press enter to continue...");
+                Console.ReadLine();
+            }
+        }
+
+        //TODO Method to display stats and "Game Over"
 
         private void BuySellSupplies()
         {
@@ -170,9 +212,6 @@ namespace NewExercise4
 
             double speed = 0.0;
 
-            // This switch case will perform travel portion of game
-            //User can also "go back" if travel is not desired
-
             var selected = UserInput();
 
             if ((selected == 0) || ((selected) > planetList.Length) || (selected < 0))
@@ -186,7 +225,7 @@ namespace NewExercise4
             }
             else if ((selected <= planetList.Length) && (selected > 0))
             {
-                speed = warpSpeed();
+                speed = WarpSpeed();
                 var distance = this.currentPlanet.location.distanceAway(planetList[selected - 1].location);
                 Console.Clear();
                 currentPlanet = planetList[selected-1];
@@ -195,15 +234,11 @@ namespace NewExercise4
                 Console.WriteLine("Press enter to continue...");
                 Console.ReadLine();
             }
-            //else
-            //{
-            //    Console.WriteLine("Your input is invalid\nPress any key to continue");
-            //}
 
         }
 
         //This method will calculate warp speed to speed of light after obtaining input.
-        private double warpSpeed()
+        private double WarpSpeed()
         {
             var input = false;
 
