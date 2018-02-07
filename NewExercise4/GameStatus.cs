@@ -15,10 +15,10 @@ namespace NewExercise4
         double totalTravel = 0;
 
         //Establishing Planet Array
-        Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
-                                 new Planets("Solstheim", new Atlas(0, 12.3)),
-                                 new Planets("Corneria", new Atlas(1.2,9.3)),
-                                 new Planets("Nayru Prime", new Atlas(30.2,0))};
+        Planets[] planetList = { new Planets("Earth", new Atlas(0, 0), (10), (9)),
+                                 new Planets("Solstheim", new Atlas(0, 12.3), (20), (10)),
+                                 new Planets("Corneria", new Atlas(1.2,9.3), (5), (100) ),
+                                 new Planets("Nayru Prime", new Atlas(30.2,0), (50),(60))};
         //Establishing SpaceShip Array
         Spaceship[] spaceshipList = { new Spaceship("USS GOLDIE HAWN"),
                                       new Spaceship("USS TEXAS"),
@@ -51,19 +51,19 @@ namespace NewExercise4
         {
             Console.Clear();
             Console.WriteLine(" You are a Space Ranger!!!");
-            Console.WriteLine(" Collect as many credits as possible. \n");
+            Console.WriteLine(" Collect as many credits as possible! \n");
 
             //Call Method for current planet
-            Console.WriteLine($"Current Planet is: {currentPlanet.planetName}");
+            Console.WriteLine($"Your current Planet is: {currentPlanet.planetName}");
 
             //Call Method for current ship
-            Console.WriteLine($"Current Ship is: {currentShip.spaceshipName}");
+            Console.WriteLine($"You are traveling on the: {currentShip.spaceshipName}");
 
             //Call Method for current supply level
-            Console.WriteLine($"Current Supply Level is: {currentShip.shipInventory} supply cases");
+            Console.WriteLine($"Your current Supply Level is: {currentShip.shipInventory} supply cases");
 
             //Call Method for current account balance
-            Console.WriteLine($"Current Account Balance is: {currentUser.accountBalance} \n"); 
+            Console.WriteLine($"Your current Account Balance is: {currentUser.accountBalance} credits\n"); 
 
         }
 
@@ -170,8 +170,8 @@ namespace NewExercise4
             Console.Clear();
             Console.WriteLine($"Welcome to Planet {currentPlanet.planetName}");
             Console.WriteLine("Supplies here cost:\n");
-            Console.WriteLine("1. To Buy: ");
-            Console.WriteLine("2. To Sell: ");
+            Console.WriteLine($"1. Buying supplies here will cost you {currentPlanet.supplyBuyPrice} credits!");
+            Console.WriteLine($"2. Selling supplies here will cost you {currentPlanet.supplySellPrice} credits! ");
             Console.WriteLine("0. Go Back\n");
 
             var exitSale = false;
@@ -184,11 +184,11 @@ namespace NewExercise4
                     Console.Write("Enter the number of cases you would like to buy: ");
                     orderedSupplies = int.Parse(Console.ReadLine());
                     currentShip.IncreaseShipInventory(orderedSupplies);
-                    var moneySpent = (orderedSupplies * 10);
+                    var moneySpent = (orderedSupplies * currentPlanet.supplyBuyPrice);
                     currentUser.DecreaseUserBalance(moneySpent);
 
-                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory}!!");
-                    Console.WriteLine($"This is going to cost you {moneySpent}!!");
+                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!!");
+                    Console.WriteLine($"This is going to cost you {moneySpent} credits!!");
                     Console.ReadLine();
 
                     break;
@@ -196,11 +196,11 @@ namespace NewExercise4
                     Console.Write("Enter the number of cases you would like to sell: ");
                     invoicedSupplies = int.Parse(Console.ReadLine());
                     currentShip.DecreaseShipInventory(invoicedSupplies);
-                    var moneyMade = (invoicedSupplies * 9);
+                    var moneyMade = (invoicedSupplies * currentPlanet.supplySellPrice);
                     currentUser.IncreaseUserBalance(moneyMade);
 
-                    Console.WriteLine($" You're new inventory will be {currentShip.shipInventory}!!");
-                    Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} added to your balance!!");
+                    Console.WriteLine($" You're new inventory will be {currentShip.shipInventory} supply cases!!");
+                    Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} credits added to your balance!!");
                     Console.ReadLine();
 
                     break;
