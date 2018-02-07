@@ -183,16 +183,26 @@ namespace NewExercise4
                 case 1:
                     Console.Write("Enter the number of cases you would like to buy: ");
                     orderedSupplies = int.Parse(Console.ReadLine());
-                    //Spaceship order = new Spaceship IncreaseShipInventory()
-                    //PurchaseNewSupplies(); //This method should reside HERE
-                    //UpdateUserBalance(); //This method wshould reside in the User Class
+                    currentShip.IncreaseShipInventory(orderedSupplies);
+                    var moneySpent = (orderedSupplies * 10);
+                    currentUser.DecreaseUserBalance(moneySpent);
+
+                    Console.WriteLine(currentShip.shipInventory);
+                    Console.WriteLine(moneySpent);
+                    Console.ReadLine();
+
                     break;
                 case 2:
                     Console.Write("Enter the number of cases you would like to sell: ");
                     invoicedSupplies = int.Parse(Console.ReadLine());
-                    //SellExistingSupplies(); //This method should reside HERE
-                    //UpdateSupplies(); //This method should reside in the Ship Class
-                    //UpdateUserBalance(); //This method wshould reside in the User Class
+                    currentShip.DecreaseShipInventory(invoicedSupplies);
+                    var moneyMade = (invoicedSupplies * 9);
+                    currentUser.IncreaseUserBalance(moneyMade);
+
+                    Console.WriteLine(currentShip.shipInventory);
+                    Console.WriteLine(moneyMade);
+                    Console.ReadLine();
+
                     break;
                 case 0:
                     exitSale = true;
