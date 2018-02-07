@@ -12,6 +12,7 @@ namespace NewExercise4
         Planets currentPlanet;
         Spaceship currentShip;
         User currentUser;
+        double totalTravel = 0;
 
         //Establishing Planet Array
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
@@ -203,7 +204,7 @@ namespace NewExercise4
             }
         }
 
-        private void SpaceTravel()
+        private double SpaceTravel()
         {
             Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
@@ -233,10 +234,12 @@ namespace NewExercise4
                     currentPlanet = planetList[selected - 1];
                     Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
                     Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
+                    totalTravel += distance;
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
+                    
                 }
-            }
+            }return totalTravel;
         }
 
         //This method will calculate warp speed to speed of light after obtaining input.
