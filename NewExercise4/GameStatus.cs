@@ -187,7 +187,7 @@ namespace NewExercise4
             else if ((selected <= planetList.Length) && (selected > 0))
             {
                 speed = warpSpeed();
-                var distance = this.currentPlanet.location.distanceAway(planetList[selected - 1].location);
+                var distance = this.currentPlanet.location.DistanceAway(planetList[selected - 1].location);
                 Console.Clear();
                 currentPlanet = planetList[selected-1];
                 Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
@@ -222,6 +222,7 @@ namespace NewExercise4
                     {
                         speed = (Math.Pow(i, (10 / 3)) + ((Math.Pow((10 - i), (-11 / 3)))));
                         input = true;
+                        return Math.Round(speed, 2);
                     }
                 }
                 catch (FormatException)

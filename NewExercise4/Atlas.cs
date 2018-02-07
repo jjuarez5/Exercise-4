@@ -19,14 +19,14 @@ namespace NewExercise4
 
         double location;
 
-        public double distanceAway(Atlas destinationAtlas)
+        public double DistanceAway(Atlas destinationAtlas)
         {
             var destX = this.pointX - destinationAtlas.pointX;
             var destY = this.pointY - destinationAtlas.pointY;
 
             var d = Math.Pow(destY, 2) + Math.Pow(destX, 2);
-
-            return Math.Abs(Math.Sqrt(d));
+            
+            return Math.Round(Math.Abs(Math.Sqrt(d)),2);
         }
     }
 }
