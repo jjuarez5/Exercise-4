@@ -10,6 +10,8 @@ namespace NewExercise4
     {
         public string spaceshipName;
         public int shipInventory = 1000;
+        public int shipMaxSpeed;//declared for future builds
+        public int shipMaxInventory;//declared for future builds
 
         //not 100% sure what this does with the array now existing...
         public Spaceship(string spaceshipName)
@@ -26,7 +28,7 @@ namespace NewExercise4
         }
 
 
-        // code structure by argiopetech
+        //Method to decrease inventory if supplies sold
         public int DecreaseShipInventory(int invoicedSupplies)
         {
             int suppliesSold = 0;
