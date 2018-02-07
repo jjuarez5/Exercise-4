@@ -28,7 +28,7 @@ namespace NewExercise4
 
 
         // code structure by argiopetech
-        public int OutboundSupplies(int offLoadedSupplies)
+        public int DecreaseShipInventory(int offLoadedSupplies)
         {
             int suppliesSold;
 

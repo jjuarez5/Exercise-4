@@ -11,12 +11,37 @@ namespace NewExercise4
         // User starts with an initial balance of 1000 credits
         int currentBalance = 1000;
 
+        public int IncreaseUserBalance(int moneyMade)
+        {
+            this.currentBalance += moneyMade;
+            return currentBalance;
+        }
+
+
+        // code structure by argiopetech
+        /*public int DecreaseUserBalance(int moneyLost)
+        {
+            int suppliesSold;
+
+            if (offLoadedSupplies > this.supplies)
+            {
+                suppliesSold = this.supplies;
+                this.supplies = 0;
+            }
+            else
+            {
+                suppliesSold = offLoadedSupplies;
+                this.supplies -= offLoadedSupplies;
+            }
+            return suppliesSold;
+        } */
+
         // Create a method to update user Balance =  current balance + Purchase supplies + Sell Supplies and
         // then return those variables to zero
         // Maybe separate current balance, purchase supplies, and sell supplies as various methods.
         // START HERE!!!!!!!!!
 
-        public int updatedBalance()
+        /*public int updatedBalance()
         {
             int newBalance = (UserInput());
 
@@ -118,7 +143,7 @@ namespace NewExercise4
 
             return selection;
 
-        }
+        }*/
     }       
 }
 
