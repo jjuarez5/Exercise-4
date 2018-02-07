@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace NewExercise4
 {
-    class User
+    public class User
     {
         // User starts with an initial balance of 1000 credits
-        int currentBalance = 1000;
-
+        public int accountBalance = 1000;
+      
         public int IncreaseUserBalance(int moneyMade)
         {
-            this.currentBalance += moneyMade;
-            return currentBalance;
+            this.accountBalance += moneyMade;
+            return accountBalance;
         }
 
 
         // code structure by argiopetech
-        /*public int DecreaseUserBalance(int moneyLost)
+        public int DecreaseUserBalance(int moneySpent)
         {
-            int suppliesSold;
+            int moneyUsed;
 
-            if (offLoadedSupplies > this.supplies)
+            if ( moneySpent > this.accountBalance)
             {
-                suppliesSold = this.supplies;
-                this.supplies = 0;
+                Console.WriteLine(" Your eyes want more than your wallet has to offer...");
+                moneyUsed = this.accountBalance;
+                this.accountBalance = 0;
             }
             else
             {
-                suppliesSold = offLoadedSupplies;
-                this.supplies -= offLoadedSupplies;
+               moneyUsed = moneySpent;
+                this.accountBalance -= moneySpent;
             }
-            return suppliesSold;
-        } */
+            return moneyUsed;
+        } 
 
         // Create a method to update user Balance =  current balance + Purchase supplies + Sell Supplies and
         // then return those variables to zero
