@@ -16,9 +16,9 @@ namespace NewExercise4
 
         //Establishing Planet Array
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
-                                 new Planets("Yeranos", new Atlas(0, 12.3)),
-                                 new Planets("Far Away", new Atlas(1.2,9.3)),
-                                 new Planets("Even Further Away", new Atlas(30.2,0))};
+                                 new Planets("Solstheim", new Atlas(0, 12.3)),
+                                 new Planets("Corneria", new Atlas(1.2,9.3)),
+                                 new Planets("Nayru Prime", new Atlas(30.2,0))};
         //Establishing SpaceShip Array
         Spaceship[] spaceshipList = { new Spaceship("USS GOLDIE HAWN"),
                                       new Spaceship("USS TEXAS"),
