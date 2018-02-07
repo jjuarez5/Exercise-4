@@ -8,23 +8,23 @@ namespace NewExercise4
 {
     class GameStatus
     {
-        //Establishing Current planet and ship
+        // Establishing Current planet and ship
         Planets currentPlanet;
         Spaceship currentShip;
         User currentUser;
         double totalTravel = 0;
 
-        //Establishing Planet Array
+        // Establishing Planet Array
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0), (10), (9)),
                                  new Planets("Solstheim", new Atlas(0, 12.3), (20), (10)),
                                  new Planets("Corneria", new Atlas(1.2,9.3), (5), (100) ),
                                  new Planets("Nayru Prime", new Atlas(30.2,0), (50),(60))};
-        //Establishing SpaceShip Array
+        // Establishing SpaceShip Array
         Spaceship[] spaceshipList = { new Spaceship("USS GOLDIE HAWN"),
                                       new Spaceship("USS TEXAS"),
                                       new Spaceship("USS ULYSSES S. GRANT")};
 
-        //Method to initilize "current items" which are arrays
+        // Method to initilize "current items" which are arrays
         public GameStatus()
         {
             currentPlanet = planetList[0];
@@ -32,7 +32,7 @@ namespace NewExercise4
             currentUser = new User();
         }
 
-        //This method calls the main menu, choose option and determines if user wants to quit
+        // This method calls the main menu, choose option and determines if user wants to quit
         public void NewGame()
         {
             var exitGame = false;
@@ -46,28 +46,28 @@ namespace NewExercise4
             } while (!exitGame);
         }
 
-        //TODO Method to display Main Menu for current game with current STATS 
+        // Method to display Main Menu for current game with current STATS 
         public void MainMenu()
         {
             Console.Clear();
             Console.WriteLine(" You are a Space Ranger!!!");
             Console.WriteLine(" Collect as many credits as possible! \n");
 
-            //Call Method for current planet
+        // Call Method for current planet
             Console.WriteLine($"Your current Planet is: {currentPlanet.planetName}");
 
-            //Call Method for current ship
+        // Call Method for current ship
             Console.WriteLine($"You are traveling on the: {currentShip.spaceshipName}");
 
-            //Call Method for current supply level
+        // Call Method for current supply level
             Console.WriteLine($"Your current Supply Level is: {currentShip.shipInventory} supply cases");
 
-            //Call Method for current account balance
+        // Call Method for current account balance
             Console.WriteLine($"Your current Account Balance is: {currentUser.accountBalance} credits\n"); 
 
         }
 
-        //Method to display choose an option to Travel or Buy/Sell
+        // Method to display choose an option to Travel or Buy/Sell
         public void ChooseOption()
         {
             Console.WriteLine(" Choose an option :");
@@ -77,9 +77,7 @@ namespace NewExercise4
             Console.WriteLine(" 0. Exit/Quit\n");
         }
 
-        //TODO Method to check account balance
-
-        //Method to read user input
+        // Method to read user input
         private int UserInput()
         {
             var input = false;
@@ -105,7 +103,7 @@ namespace NewExercise4
 
         }
 
-        //Method to call method based on user input
+        // Method to call method based on user input
         private bool ActOnSelectedItem(int selection)
         {
             var exitGame = false;
@@ -163,7 +161,7 @@ namespace NewExercise4
             }
         }
 
-        //TODO Method to display stats and "Game Over"
+        // TODO Method to display stats and "Game Over"
 
         private void BuySellSupplies()
         {
@@ -252,7 +250,7 @@ namespace NewExercise4
             }return totalTravel;
         }
 
-        //This method will calculate warp speed to speed of light after obtaining input.
+        // This method will calculate warp speed to speed of light after obtaining input.
         private double WarpSpeed()
         {
             var input = false;
