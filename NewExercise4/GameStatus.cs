@@ -22,13 +22,11 @@ namespace NewExercise4
                                       new Spaceship("USS TEXAS"),
                                       new Spaceship("USS ULYSSES S. GRANT")};
 
-        //Method to initilize "current items"
+        //Method to initilize "current items" which are arrays
         public GameStatus()
         {
             currentPlanet = planetList[0];
             currentShip = spaceshipList[0];
-            //currentSupplies = 1000;
-            //currentAccountBalance = 500;
         }
 
         //This method calls the main menu, choose option and determines if user wants to quit
@@ -75,8 +73,6 @@ namespace NewExercise4
             Console.WriteLine(" 3. Change your Spaceship");
             Console.WriteLine(" 0. Exit/Quit\n");
         }
-
-        //TODO Method to check supply levels
 
         //TODO Method to check account balance
 
@@ -176,15 +172,21 @@ namespace NewExercise4
             Console.WriteLine("0. Go Back\n");
 
             var exitSale = false;
+            var orderedSupplies = 0;
+            var invoicedSupplies = 0;
 
             switch (UserInput())
             {
                 case 1:
+                    Console.Write("Enter the number of cases you would like to buy: ");
+                    orderedSupplies = int.Parse(Console.ReadLine());
+                    //Spaceship order = new Spaceship IncreaseShipInventory()
                     //PurchaseNewSupplies(); //This method should reside HERE
-                    //UpdateSupplies(); //This method should reside in the Ship Class
                     //UpdateUserBalance(); //This method wshould reside in the User Class
                     break;
                 case 2:
+                    Console.Write("Enter the number of cases you would like to sell: ");
+                    invoicedSupplies = int.Parse(Console.ReadLine());
                     //SellExistingSupplies(); //This method should reside HERE
                     //UpdateSupplies(); //This method should reside in the Ship Class
                     //UpdateUserBalance(); //This method wshould reside in the User Class

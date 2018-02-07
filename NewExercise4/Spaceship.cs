@@ -8,7 +8,6 @@ namespace NewExercise4
 {
     class Spaceship
     {
-        public string currentShip;
         public string spaceshipName;
         public int shipInventory = 1000;
 
