@@ -168,7 +168,7 @@ namespace NewExercise4
         private void BuySellSupplies()
         {
             Console.Clear();
-            Console.WriteLine("Welcome to Planet... \n");
+            Console.WriteLine($"Welcome to Planet {currentPlanet}\n");
             Console.WriteLine("Supplies here cost:\n");
             Console.WriteLine("1. To Buy: ");
             Console.WriteLine("2. To Sell: ");
