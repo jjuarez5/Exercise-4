@@ -174,14 +174,12 @@ namespace NewExercise4
             //User can also "go back" if travel is not desired
 
             var selected = UserInput();
-            var planetItem = (selected - 1);
-            var exitLoop = false;
 
-            if (selected == 0)
+            if ((selected == 0) || ((selected) > planetList.Length) || (selected < 0))
             {
                 ;
             }
-            else if (this.currentPlanet == planetList[planetItem])
+            else if (this.currentPlanet == planetList[selected-1])
             {
                 Console.WriteLine("You're already on this planet...\nPress enter to continue");
                 Console.ReadLine();
@@ -191,56 +189,18 @@ namespace NewExercise4
                 speed = warpSpeed();
                 var distance = this.currentPlanet.location.distanceAway(planetList[selected - 1].location);
                 Console.Clear();
-                currentPlanet = planetList[planetItem];
+                currentPlanet = planetList[selected-1];
                 Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
                 Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
                 Console.WriteLine("Press enter to continue...");
                 Console.ReadLine();
             }
-            else if ((selected >= planetList.Length) && (selected < 0))
-            {
-                Console.WriteLine("Please make good choices...\nPress enter to continue...");
-                Console.ReadLine();
-            }
-            else if (selected != 0)
-            {
-                Console.WriteLine("Your input is invalid\nPress any key to continue");
-            }
+            //else
+            //{
+            //    Console.WriteLine("Your input is invalid\nPress any key to continue");
+            //}
 
         }
-
-
-
-
-
-
-
-            /*//Make into an if statement to test if at max array limit...
-            switch (selected)
-            {
-                case 3:
-                    speed = warpSpeed();
-                    var distance = this.currentPlanet.location.distanceAway(planetList[selected-1].location);
-                    //Each planet should have a welcome screen with costs etc.
-                    Console.Clear();
-                    currentPlanet = planetList[selected-1];
-                    Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
-                    Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    break;
-                case 2:
-                    Console.WriteLine("You're already at your home planet");
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-                    break;
-                case 0:
-                    goBack = true;
-                    break;
-                default:
-                    break;
-            }*/
-        
 
         //This method will calculate warp speed to speed of light after obtaining input.
         private double warpSpeed()
