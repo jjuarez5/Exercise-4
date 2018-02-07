@@ -162,26 +162,65 @@ namespace NewExercise4
             Console.Clear();
             Console.WriteLine("Space Ranger Travel \n");
             Console.WriteLine("Choose a location to travel to : \n");
-            for (var i =0; i<planetList.Length;i++)
+            for (var i = 0; i < planetList.Length; i++)
             {
-                Console.WriteLine($"{i+1}. {planetList[i].planetName}");
+                Console.WriteLine($"{i + 1}. {planetList[i].planetName}");
             }
             Console.WriteLine("0. Go Back\n");
 
-            var goBack = false;
             double speed = 0.0;
 
             // This switch case will perform travel portion of game
             //User can also "go back" if travel is not desired
-            var selected = UserInput();
 
-            //Make into an if statement to test if at max array limit...
+            var selected = UserInput();
+            var planetItem = (selected - 1);
+            var exitLoop = false;
+
+            if (selected == 0)
+            {
+                ;
+            }
+            else if (this.currentPlanet == planetList[planetItem])
+            {
+                Console.WriteLine("You're already on this planet...\nPress enter to continue");
+                Console.ReadLine();
+            }
+            else if ((selected <= planetList.Length) && (selected > 0))
+            {
+                speed = warpSpeed();
+                var distance = this.currentPlanet.location.distanceAway(planetList[selected - 1].location);
+                Console.Clear();
+                currentPlanet = planetList[planetItem];
+                Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
+                Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
+                Console.WriteLine("Press enter to continue...");
+                Console.ReadLine();
+            }
+            else if ((selected >= planetList.Length) && (selected < 0))
+            {
+                Console.WriteLine("Please make good choices...\nPress enter to continue...");
+                Console.ReadLine();
+            }
+            else if (selected != 0)
+            {
+                Console.WriteLine("Your input is invalid\nPress any key to continue");
+            }
+
+        }
+
+
+
+
+
+
+
+            /*//Make into an if statement to test if at max array limit...
             switch (selected)
             {
                 case 3:
                     speed = warpSpeed();
                     var distance = this.currentPlanet.location.distanceAway(planetList[selected-1].location);
-                    //may need to break this out into the planet's as a method there
                     //Each planet should have a welcome screen with costs etc.
                     Console.Clear();
                     currentPlanet = planetList[selected-1];
@@ -200,8 +239,8 @@ namespace NewExercise4
                     break;
                 default:
                     break;
-            }
-        }
+            }*/
+        
 
         //This method will calculate warp speed to speed of light after obtaining input.
         private double warpSpeed()
