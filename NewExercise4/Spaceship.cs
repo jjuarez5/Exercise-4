@@ -10,9 +10,9 @@ namespace NewExercise4
     {
         public string currentShip;
         public string spaceshipName;
-        public int supplies = 0;
         public int shipInventory = 1000;
 
+        //not 100% sure what this does with the array now existing...
         public Spaceship(string spaceshipName)
         {
             this.spaceshipName = spaceshipName;
@@ -20,27 +20,35 @@ namespace NewExercise4
 
         //Method to receive purchase order "boughtSupplies" and
         //increase shipInventory = then return shipInventory.
-        public int IncreaseShipInventory(int boughtSupplies)
+        public int IncreaseShipInventory(int orderedSupplies)
         {
-             this.shipInventory += boughtSupplies;
+             this.shipInventory += orderedSupplies;
              return shipInventory;
         }
 
 
         // code structure by argiopetech
-        public int DecreaseShipInventory(int offLoadedSupplies)
+        public int DecreaseShipInventory(int invoicedSupplies)
         {
-            int suppliesSold;
+            int suppliesSold = 0;
 
-            if (offLoadedSupplies > this.supplies)
+            if (invoicedSupplies > this.shipInventory)
             {
-                suppliesSold = this.supplies;
-                this.supplies = 0;
+                Console.WriteLine("Your current inventory will not support this transaction.\n");
+                Console.WriteLine("Do you want to sell all your supplies?\n");
+                Console.Write("Enter 'Y' to continue or any other key to cancel.");
+                char yesNo = char.Parse(Console.ReadLine());
+                yesNo = char.ToUpper(yesNo);
+                if (yesNo == 'Y')
+                {
+                    suppliesSold = this.shipInventory;
+                    this.shipInventory = 0;
+                }
             }
             else
             {
-                suppliesSold = offLoadedSupplies;
-                this.supplies -= offLoadedSupplies;
+                suppliesSold = invoicedSupplies;
+                this.shipInventory -= invoicedSupplies;
             }
             return suppliesSold;
         }

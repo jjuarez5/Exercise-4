@@ -214,27 +214,25 @@ namespace NewExercise4
 
             var selected = UserInput();
 
-            if ((selected == 0) || ((selected) > planetList.Length) || (selected < 0))
+            if ( (selected > 0) && (selected <= planetList.Length) )
             {
-                ;
+                if (this.currentPlanet == planetList[selected - 1])
+                {
+                    Console.WriteLine("You're already on this planet...\nPress enter to continue");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    speed = WarpSpeed();
+                    var distance = this.currentPlanet.location.DistanceAway(planetList[selected - 1].location);
+                    Console.Clear();
+                    currentPlanet = planetList[selected - 1];
+                    Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
+                    Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+                }
             }
-            else if (this.currentPlanet == planetList[selected-1])
-            {
-                Console.WriteLine("You're already on this planet...\nPress enter to continue");
-                Console.ReadLine();
-            }
-            else if ((selected <= planetList.Length) && (selected > 0))
-            {
-                speed = WarpSpeed();
-                var distance = this.currentPlanet.location.DistanceAway(planetList[selected - 1].location);
-                Console.Clear();
-                currentPlanet = planetList[selected-1];
-                Console.WriteLine($"You made it to {currentPlanet.planetName}\n");
-                Console.WriteLine($"You traveled {distance} light years at {speed} times the speed of Light!  ZOOOM!\n");
-                Console.WriteLine("Press enter to continue...");
-                Console.ReadLine();
-            }
-
         }
 
         //This method will calculate warp speed to speed of light after obtaining input.
