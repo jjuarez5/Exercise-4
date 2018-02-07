@@ -11,6 +11,7 @@ namespace NewExercise4
         //Establishing Current planet and ship
         Planets currentPlanet;
         Spaceship currentShip;
+        User currentUser;
 
         //Establishing Planet Array
         Planets[] planetList = { new Planets("Earth", new Atlas(0, 0)),
@@ -27,8 +28,8 @@ namespace NewExercise4
         {
             currentPlanet = planetList[0];
             currentShip = spaceshipList[0];
-            //currentSupplies = 1000;
-            //currentAccountBalance = 500;
+            currentUser = new User();
+            
         }
 
         //This method calls the main menu, choose option and determines if user wants to quit
@@ -62,8 +63,7 @@ namespace NewExercise4
             Console.WriteLine($"Current Supply Level is: {currentShip.shipInventory} supply cases");
 
             //Call Method for current account balance
-            Console.WriteLine("Current Account Balance is: \n"); //+ {currentBalance});
-
+            Console.WriteLine($"Current Balance is : $${currentUser.accountBalance} \n");
         }
 
         //Method to display choose an option to Travel or Buy/Sell
