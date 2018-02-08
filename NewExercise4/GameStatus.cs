@@ -202,8 +202,9 @@ namespace NewExercise4
                     var moneySpent = (orderedSupplies * currentPlanet.supplyBuyPrice);
                     currentUser.DecreaseUserBalance(moneySpent);
 
-                    Console.WriteLine($"Wow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
-                    Console.WriteLine($"This is going to cost you {moneySpent} credits!!");
+                    Console.WriteLine($"\nWow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
+                    Console.WriteLine($"This is going to cost you {moneySpent} credits!!\n");
+                    Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
 
                     break;
@@ -223,7 +224,7 @@ namespace NewExercise4
                     exitSale = true;
                     break;
                 default:
-                    Console.WriteLine("Please select 0, 1 or 2!");
+                    Console.WriteLine("You need to select 0, 1 or 2!\n Press enter to go back");                    
                     Console.ReadLine();
                     break;
             }
