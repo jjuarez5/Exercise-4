@@ -211,15 +211,18 @@ namespace NewExercise4
                 case 2:
                     Console.Write("Enter the number of cases you would like to sell: ");
                     invoicedSupplies = int.Parse(Console.ReadLine());
-                    currentShip.DecreaseShipInventory(invoicedSupplies);
-                    var moneyMade = (invoicedSupplies * currentPlanet.supplySellPrice);
-                    currentUser.IncreaseUserBalance(moneyMade);
+                    if ((currentShip.DecreaseShipInventory(invoicedSupplies)) != 0)
+                    {
+                        var moneyMade = (invoicedSupplies * currentPlanet.supplySellPrice);
+                        currentUser.IncreaseUserBalance(moneyMade);
 
-                    Console.WriteLine($" You're new inventory will be {currentShip.shipInventory} supply cases!!");
-                    Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} credits added to your balance!!");
-                    Console.ReadLine();
+                        Console.WriteLine($" You're new inventory will be {currentShip.shipInventory} supply cases!!");
+                        Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} credits added to your balance!!");
+                        Console.ReadLine();
 
-                    break;
+                        break;
+                    }
+                    else break;
                 case 0:
                     exitSale = true;
                     break;

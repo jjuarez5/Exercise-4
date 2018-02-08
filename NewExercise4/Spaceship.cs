@@ -40,7 +40,7 @@ namespace NewExercise4
             {
                 Console.WriteLine("Your current inventory will not support this transaction.\n");
                 Console.WriteLine("Do you want to sell all your supplies?\n");
-                Console.Write("Enter 'Y' to continue or any other key to cancel.");
+                Console.Write("Enter 'Y' to continue or enter to cancel.");
                 char yesNo = char.Parse(Console.ReadLine());
                 yesNo = char.ToUpper(yesNo);
                 if (yesNo == 'Y')
