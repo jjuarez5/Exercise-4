@@ -198,16 +198,18 @@ namespace NewExercise4
                 case 1:
                     Console.Write("Enter the number of cases you would like to buy: ");
                     orderedSupplies = int.Parse(Console.ReadLine());
-                    currentShip.IncreaseShipInventory(orderedSupplies);
                     var moneySpent = (orderedSupplies * currentPlanet.supplyBuyPrice);
-                    currentUser.DecreaseUserBalance(moneySpent);
+                   if  ((currentUser.DecreaseUserBalance(moneySpent)) !=0)
+                    {
+                        currentShip.IncreaseShipInventory(orderedSupplies);
+                        Console.WriteLine($"\nWow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
+                        Console.WriteLine($"This is going to cost you {moneySpent} credits!!\n");
+                        Console.WriteLine("Press enter to continue...");
+                        Console.ReadLine();
 
-                    Console.WriteLine($"\nWow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
-                    Console.WriteLine($"This is going to cost you {moneySpent} credits!!\n");
-                    Console.WriteLine("Press enter to continue...");
-                    Console.ReadLine();
-
-                    break;
+                        break;
+                    } break;
+                    
                 case 2:
                     Console.Write("Enter the number of cases you would like to sell: ");
                     invoicedSupplies = int.Parse(Console.ReadLine());
