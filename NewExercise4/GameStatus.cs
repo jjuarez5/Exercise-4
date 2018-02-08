@@ -203,7 +203,7 @@ namespace NewExercise4
                     {
                         currentShip.IncreaseShipInventory(orderedSupplies);
                         Console.WriteLine($"\nWow, Space Ranger! Your total supply inventory will now be {currentShip.shipInventory} supply cases!");
-                        Console.WriteLine($"This is going to cost you {moneySpent} credits!!\n");
+                        Console.WriteLine($"This transaction cost you {moneySpent} credits!!\nYour balance will be updated on the next screen.");
                         Console.WriteLine("Press enter to continue...");
                         Console.ReadLine();
 

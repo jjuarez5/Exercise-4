@@ -28,14 +28,20 @@ namespace NewExercise4
                 Console.WriteLine("Your current account balance will not support this transaction.\n");
                 Console.WriteLine("Do you want to spend all of your credits?\n");
                 Console.Write("Enter 'Y' to continue or enter to cancel.\n");
-                char yesNo = char.Parse(Console.ReadLine());
-                yesNo = char.ToUpper(yesNo);
 
-                if (yesNo == 'Y')
+                try
                 {
-                    moneyUsed = this.accountBalance;
-                    this.accountBalance = 0;
-                }             
+                    char yesNo = char.Parse(Console.ReadLine());
+                    yesNo = char.ToUpper(yesNo);
+
+                    if (yesNo == 'Y')
+                    {
+                        moneyUsed = this.accountBalance;
+                        this.accountBalance = 0;
+                    }
+                }
+                catch (FormatException)
+                {; }
             }
             else
             {

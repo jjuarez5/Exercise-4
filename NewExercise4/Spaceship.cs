@@ -26,8 +26,8 @@ namespace NewExercise4
         // increase shipInventory = then return shipInventory.
         public int IncreaseShipInventory(int orderedSupplies)
         {
-             this.shipInventory += orderedSupplies;
-             return shipInventory;
+            this.shipInventory += orderedSupplies;
+            return shipInventory;
         }
 
 
@@ -41,13 +41,20 @@ namespace NewExercise4
                 Console.WriteLine("Your current inventory will not support this transaction.\n");
                 Console.WriteLine("Do you want to sell all your supplies?\n");
                 Console.Write("Enter 'Y' to continue or enter to cancel.");
-                char yesNo = char.Parse(Console.ReadLine());
-                yesNo = char.ToUpper(yesNo);
-                if (yesNo == 'Y')
+
+                try
                 {
-                    suppliesSold = this.shipInventory;
-                    this.shipInventory = 0;
+
+                    char yesNo = char.Parse(Console.ReadLine());
+                    yesNo = char.ToUpper(yesNo);
+                    if (yesNo == 'Y')
+                    {
+                        suppliesSold = this.shipInventory;
+                        this.shipInventory = 0;
+                    }
                 }
+                catch (FormatException)
+                { ; }
             }
             else
             {
