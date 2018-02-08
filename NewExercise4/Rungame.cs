@@ -74,5 +74,6 @@ namespace NewExercise4
             Console.WriteLine(" 1. New Game");
             Console.WriteLine(" 0. Exit \n");
         }
+
     }
 }

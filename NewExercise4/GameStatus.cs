@@ -37,6 +37,8 @@ namespace NewExercise4
         {
             var exitGame = false;
 
+            Instructions();
+
             do
             {
                 MainMenu();
@@ -51,9 +53,6 @@ namespace NewExercise4
         public void MainMenu()
         {
             Console.Clear();
-            Console.WriteLine(" You are a Space Ranger!!!");
-            Console.WriteLine(" Collect as many credits as possible! ");
-            Console.WriteLine(" Your game will end if your account balance is 0!!\n");
 
         // Call Method for current planet
             Console.WriteLine($"Your current Planet is: {currentPlanet.planetName}");
@@ -171,9 +170,8 @@ namespace NewExercise4
                 Console.Clear();
                 Console.WriteLine("G A M E   O V E R");
                 Console.WriteLine("_______________________");
-                Console.WriteLine($"You traveled a total of {totalTravel} light years.");
-                Console.WriteLine($"You ended up with a total {currentUser.accountBalance} credits.");
-                Console.WriteLine($"You ended your journey on Planet {currentPlanet.planetName}.");
+                Console.WriteLine($"You traveled a total of {totalTravel} light years.\n");
+                Console.WriteLine($"You ended your journey on Planet {currentPlanet.planetName}.\n");
                 Console.WriteLine("Thanks for playing, Space Ranger. You did an okay job.");
 
             }
@@ -304,6 +302,20 @@ namespace NewExercise4
 
             return speed;            
         }
-       
+
+        private void Instructions()
+        {
+            Console.Clear();
+            Console.WriteLine(" You are a Space Ranger!!!\n");
+            Console.WriteLine(" Collect as many credits as possible!\n");
+            Console.WriteLine(" As a Space Ranger, you are the Commodore for 3 ships\n" +
+                              " which hold their own inventory. You can change between ships and see\n" +
+                              " that particlular ship's inventory but as the Commodore, you only have\n" +
+                              " one account balance of credits. Travel to planets, buy supplies for as\n" +
+                              " little as possible and travel elsewhere and sell as high as possible.\n");
+            Console.WriteLine(" Your game will end if your account balance is 0!!\n");
+            Console.WriteLine(" \nPress enter to start your expedition!\n");
+            Console.ReadLine();
+        }
     }
 }
