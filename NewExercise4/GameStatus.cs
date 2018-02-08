@@ -183,7 +183,8 @@ namespace NewExercise4
         {
             Console.Clear();
             Console.WriteLine($"Welcome to Planet {currentPlanet.planetName}");
-            Console.WriteLine("Supplies here cost:\n");
+            Console.WriteLine($"You currently have {currentUser.accountBalance} credits\nand have {currentShip.shipInventory} on the {currentShip.spaceshipName}.\n");
+
             Console.WriteLine($"1. Buying supplies here will cost you {currentPlanet.supplyBuyPrice} credits per case!");
             Console.WriteLine($"2. Selling supplies here will make you {currentPlanet.supplySellPrice} credits per case! ");
             Console.WriteLine("0. Go Back\n");
