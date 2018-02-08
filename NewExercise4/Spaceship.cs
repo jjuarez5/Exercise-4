@@ -16,7 +16,8 @@ namespace NewExercise4
         // Declared for future builds
         public int shipMaxInventory;
 
-        // Not 100% sure what this does with the array now existing...
+        // Not 100% sure what this does with the array now existing.
+        // Saving as active code for future builds.
         public Spaceship(string spaceshipName)
         {
             this.spaceshipName = spaceshipName;

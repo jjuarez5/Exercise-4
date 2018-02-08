@@ -10,7 +10,8 @@ namespace NewExercise4
     {
         // User starts with an initial balance of 1000 credits
         public int accountBalance = 1000;
-      
+
+        // Method to increase the User's Account balance if they sold supplies
         public int IncreaseUserBalance(int moneyMade)
         {
             this.accountBalance += moneyMade;
@@ -18,7 +19,7 @@ namespace NewExercise4
         }
 
 
-        // code structure by argiopetech
+        // Method to decrease the User's Account balance if theu bought supplies
         public int DecreaseUserBalance(int moneySpent)
         {
             int moneyUsed=0;

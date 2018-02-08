@@ -19,12 +19,13 @@ namespace NewExercise4
                                  new Planets("Solstheim", new Atlas(0, 12.3), (20), (10)),
                                  new Planets("Corneria", new Atlas(1.2,9.3), (5), (100) ),
                                  new Planets("Nayru Prime", new Atlas(30.2,0), (50),(60))};
+        
         // Establishing SpaceShip Array
         Spaceship[] spaceshipList = { new Spaceship("USS GOLDIE HAWN"),
                                       new Spaceship("USS TEXAS"),
                                       new Spaceship("USS ULYSSES S. GRANT")};
 
-        // Method to initilize "current items" which are arrays
+        // Method to initilize "current items"
         public GameStatus()
         {
             currentPlanet = planetList[0];
@@ -129,6 +130,7 @@ namespace NewExercise4
             return exitGame;
         }
 
+        // Method to enable you to change ships and check ship inventory
         private void ChangeYourShip()
         {
             Console.Clear();
@@ -162,7 +164,7 @@ namespace NewExercise4
             }
         }
 
-        // TODO Method to display stats and "Game Over"
+        // Method to display stats and "Game Over"
         public void GameOver()
         {
             if (currentUser.accountBalance == 0) 
@@ -177,6 +179,7 @@ namespace NewExercise4
             }
         }
 
+        // Method to initiate the buy/sell screen and complete transactions when valid
         private void BuySellSupplies()
         {
             Console.Clear();
@@ -187,7 +190,6 @@ namespace NewExercise4
             Console.WriteLine($"2. Selling supplies here will make you {currentPlanet.supplySellPrice} credits per case! ");
             Console.WriteLine("0. Go Back\n");
 
-            var exitSale = false;
             var orderedSupplies = 0;
             var invoicedSupplies = 0;
 
@@ -224,7 +226,6 @@ namespace NewExercise4
                     }
                     else break;
                 case 0:
-                    exitSale = true;
                     break;
                 default:
                     Console.WriteLine("You need to select 0, 1 or 2!\n Press enter to go back");                    
@@ -233,6 +234,7 @@ namespace NewExercise4
             }
         }
 
+        // Method to complete space travel to differnt planets
         private double SpaceTravel()
         {
             Console.Clear();
@@ -271,7 +273,7 @@ namespace NewExercise4
             }return totalTravel;
         }
 
-        // This method will calculate warp speed to speed of light after obtaining input.
+        // Method to calculate warp speed to speed of light after obtaining input
         private double WarpSpeed()
         {
             var input = false;
@@ -303,6 +305,7 @@ namespace NewExercise4
             return speed;            
         }
 
+        // Method to display game instructions
         private void Instructions()
         {
             Console.Clear();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewExercise4
 {
+    // Class created with the basic structure presented by argiopetech on GitHub.com
     class Planets
     {
         public string planetName;

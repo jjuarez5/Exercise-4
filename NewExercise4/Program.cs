@@ -10,10 +10,7 @@ namespace NewExercise4
     {
         static void Main(string[] args)
         {
-
-            //Call the RunGame method in RunGame class
-            new RunGame().Run();
-            
+            new RunGame().Run();          
         }
     }
 }

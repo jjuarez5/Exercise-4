@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewExercise4
 {
+    // Class created off the basic structure presented by argiopetech on GitHub.com
     public class Atlas
     {
         private double pointX;
