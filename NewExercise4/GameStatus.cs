@@ -218,7 +218,7 @@ namespace NewExercise4
                         var moneyMade = (invoicedSupplies * currentPlanet.supplySellPrice);
                         currentUser.IncreaseUserBalance(moneyMade);
 
-                        Console.WriteLine($" You're new inventory will be {currentShip.shipInventory} supply cases!!");
+                        Console.WriteLine($" Your new inventory will be {currentShip.shipInventory} supply cases!!");
                         Console.WriteLine($"Hey there, Money Bags!! You will have {moneyMade} credits added to your balance!!");
                         Console.ReadLine();
 
